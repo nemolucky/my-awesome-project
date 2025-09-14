@@ -44,10 +44,16 @@
     </header>
     <main>
       <!-- Простые "хлебные крошки" -->
-      <nav aria-label="Хлебные крошки">
-        <a href="../index.html">Главная</a> →
-        <span>Контакты</span>
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="../index.html">
+            Главная
+        </a> 
+        <span class="breadcrumbs__separator"> → </span>
+        <span class="breadcrumbs__link breadcrumbs__link--current">
+            Контакты
+        </span>
       </nav>
+      
       <h1>Свяжитесь с нами</h1>
       <section>
         <h2>Контактная информация</h2>

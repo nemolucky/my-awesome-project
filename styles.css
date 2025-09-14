@@ -149,6 +149,34 @@ dialog::backdrop {
     font-weight: 500;
 }
 
+.breadcrumbs {
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.breadcrumbs__link {
+    color: #0a84ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs__link:hover {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+.breadcrumbs__link--current {
+    color: #666;
+    text-decoration: none;
+    cursor: default;
+}
+
+.breadcrumbs_separator{
+    color: #999;
+}
+
 /* Центровка и ограничение ширины контейнера */
 .container{ 
     width:min(100% - 2*var(--space-4), 1120px); 
