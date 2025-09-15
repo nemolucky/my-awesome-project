@@ -44,46 +44,142 @@ body{
     line-height:1.5;
 }
 
-/* Формы: размеры, отступы, визуальный порядок */
-label { 
-    display: block; 
-    margin: 0.5rem 0 0.25rem; 
-}
-
-input, select, textarea, button {
-    width: 100%;
-    max-width: 480px;
-    padding: .5rem .75rem;
-    border: 1px solid #c8c8c8;
-    border-radius: 8px;
-    background: #fff;
-}
-
-/* Кнопка по умолчанию */
-button, [type="submit"] {
-    background: #0a84ff;
-    color: #fff;
+.modal {
+    padding: 2rem;
     border: none;
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    box-shadow: var(--shadow);
+    width: min(90vw, 600px);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.modal__header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.modal__title {
+    margin: 0;
+    color: var(--color-fg);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Стили для формы */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form__label {
+    display: block;
+    font-weight: 500;
+    color: var(--color-fg);
+    margin-bottom: 0.25rem;
+}
+
+.form__label--required::after {
+    content: '*';
+    color: var(--color-danger);
+    margin-left: 0.25rem;
+}
+
+.form__help {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-top: 0.25rem;
+}
+
+.form__input,
+.form__select,
+.form__textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e1e5e9;
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.1);
+}
+
+.form__input:hover,
+.form__select:hover,
+.form__textarea:hover {
+    border-color: #c8c8c8;
+}
+
+.form__actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.button, .form__button {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    font-weight: 500;
+    font-size: 1rem;
     cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
 }
 
-/* Состояния: клавиатура/мышь/ошибки */
-:where(input, select, textarea, button):focus-visible {
-    outline: 2px solid #0a84ff; outline-offset: 2px;
+.form__button--primary {
+    background: var(--color-primary);
+    color: white;
 }
 
-button:hover { 
-    filter: brightness(0.95); 
+.form__button--primary:hover {
+    background: #0066cc;
+    transform: translateY(-1px);
 }
 
-dialog { 
-    padding: 1.25rem; 
-    border: none; 
-    border-radius: 12px; 
+.form__button--primary:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
-dialog::backdrop { 
-    background: rgba(0,0,0,.5); 
+.form__button--secondary {
+    background: transparent;
+    color: var(--color-muted);
+    border-color: #e1e5e9;
+}
+
+.form__button--secondary:hover {
+    background: #f0f0f0;
+    color: var(--color-fg);
+}
+
+.form__button--secondary:focus-visible {
+    outline: 2px solid var(--color-muted);
+    outline-offset: 2px;
 }
 
 .main-header{
@@ -241,12 +337,6 @@ dialog::backdrop {
 .anchor-links__link:focus-visible {
     outline: 2px solid #0a84ff;
     outline-offset: 2px;
-}
-
-.form-actions { 
-    display:flex; 
-    gap:.5rem; 
-    margin-top:1rem; 
 }
 
 :disabled, [aria-disabled="true"] { 
