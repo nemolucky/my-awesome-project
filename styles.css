@@ -33,6 +33,10 @@ html,body{
     padding:0; 
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background:var(--color-bg);
     color:var(--color-fg);
@@ -149,6 +153,10 @@ dialog::backdrop {
     font-weight: 500;
 }
 
+.main__title{
+    color: #333;
+}
+
 .breadcrumbs {
     margin: 1rem 0;
     padding: 0.5rem 0;
@@ -173,7 +181,7 @@ dialog::backdrop {
     cursor: default;
 }
 
-.breadcrumbs_separator{
+.breadcrumbs__separator{
     color: #999;
 }
 
@@ -184,9 +192,56 @@ dialog::backdrop {
 }
 
 /* Вертикальные отступы секций по токенам */
-.section{ padding-block:var(--space-5); }
+.section{ 
+    padding-block:var(--space-5); 
+    scroll-margin-top: 100px;
+}
 
-.section__title{ margin:0 0 var(--space-3); }
+.section:target {
+    background-color: #f8f9ff;
+    border-left: 4px solid #0a84ff;
+    padding-left: 1rem;
+    animation: highlight 2s ease;
+}
+
+@keyframes highlight {
+    0% { background-color: #e6f2ff; }
+    100% { background-color: #f8f9ff; }
+}
+
+.section__title{ 
+    margin:0 0 var(--space-3);
+    color: #333;
+}
+
+.anchor-links {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.anchor-links__link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.anchor-links__link:hover {
+    background-color: #0a84ff;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.anchor-links__link:focus-visible {
+    outline: 2px solid #0a84ff;
+    outline-offset: 2px;
+}
 
 .form-actions { 
     display:flex; 
